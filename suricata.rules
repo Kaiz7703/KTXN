@@ -1,0 +1,13 @@
+drop tcp any any -> any 61616 (
+    msg: "CVE-2023-46604 Detected";
+    flow: to_server, established;
+    content:"ClassPathXmlApplicationContext"; nocase;
+    content:"http"; nocase;
+    content:".xml"; nocase;
+    content:"ProcessBuilder"; nocase;
+    pcre:"/bash\s+-i\s+.*\/dev\/tcp\/[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+\/[0-9]+/i";
+    dsize: >100;
+    threshold: type limit, track by_src, count 3, seconds 10;
+    classtype:attempted-admin;
+    sid:4660401; rev:3;
+)
